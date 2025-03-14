@@ -1,0 +1,279 @@
+@import 'tailwindcss';
+
+.close-button, .cancel-button {
+  @apply relative overflow-hidden flex flex-row justify-center items-center gap-4 px-4 rounded-xl cursor-pointer transition-transform duration-100 font-["Poppins"] font-semibold text-2xl text-center;
+  background-image: var(--closeLinear);
+  color: var(--closeText);
+  z-index: 1;
+  text-shadow: 2px 2px 2px black;
+}
+
+/* Conf Button */
+.conf-button {
+  @apply relative overflow-hidden flex flex-row justify-center items-center gap-4 px-4 rounded-xl cursor-pointer transition-transform duration-100 font-["Poppins"] font-semibold text-2xl text-center;
+  background: var(--layoutBackground);
+  color: #00fff2;
+  z-index: 1;
+}
+
+.conf-button::before {
+  @apply block top-1/2 left-1/2 absolute h-full w-0 duration-300 ease-in;
+  content: '';
+  transform: translate(-50%, -50%);
+  background: var(--radialGradient);
+  z-index: -1;
+ }
+
+.conf-button:hover::before {
+ width: 105%;
+}
+
+.conf-button:hover {
+  text-shadow: 4px 4px 4px var(--confirmTextShadow);
+}
+
+/* Filters Buttons */
+.filter-button {
+  @apply inline-flex justify-center items-center cursor-pointer font-medium whitespace-nowrap overflow-hidden text-ellipsis leading-none no-underline border-none rounded-full gap-4 px-8 font-[Poppins] w-full h-24 text-3xl;
+  background: var(--radialGradient);
+  color: var(--textColor);
+}
+
+@keyframes scale {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); } /* Aumenta un 20% */
+  100% { transform: scale(1); }
+}
+.filter-button:hover, .cancel-button:hover, .cancel-button:hover {
+  background-size: 400% auto !important; 
+}
+.filter-button:hover img, .conf-button:hover img, .cancel-button:hover img{
+  animation: scale 0.8s infinite ease-in-out;
+}
+
+/* Nav Button */
+.nav-btn {
+  border: none;
+  color: var(--textColor);
+  background-image: var(--linearGradient);
+  border-radius: 1.2rem;
+  background-size: 100% auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Quicksand', serif;
+  font-weight: bold;
+  width: 8rem;
+  height: auto;
+  padding: 1rem;
+  text-wrap: nowrap;
+ }
+ 
+ .nav-btn:hover {
+  /* background-position: right center;*/
+  background-size: 200% auto; 
+  -webkit-animation: pulse 1s infinite;
+  animation: pulse512 1s infinite;
+ }
+ 
+ @keyframes pulse512 {
+  0% {
+   box-shadow: 0 0 0 0 #05bada66;
+  }
+ 
+  70% {
+   box-shadow: 0 0 0 20px rgb(218 103 68 / 0%);
+  }
+ 
+  100% {
+   box-shadow: 0 0 0 0 rgb(218 103 68 / 0%);
+  }
+ }
+
+.nav-btn-active, .filter-button-active, .view-button-active, .page-button-active {
+  background: var(--containerColor) !important;
+  border: 2px solid var(--textColor) !important;
+}
+
+/* Pagination Button */
+.move-button {
+  @apply inline-flex justify-center items-center cursor-pointer font-medium whitespace-nowrap overflow-hidden text-ellipsis leading-none no-underline border-none rounded-full px-8 font-[Poppins] w-12 h-8 text-xl;
+  background: var(--radialGradient);
+  color: var(--textColor);
+}
+
+.move-button:hover, .page-button:hover {
+  transform: scale(1.2); 
+}
+
+.page-button {
+  @apply flex justify-center items-center text-center rounded-sm w-10 h-10 text-xl;
+  background: var(--linearGradient);
+  color: var(--titleColor)
+}
+
+.page-button-active {
+  @apply flex justify-center items-center text-center rounded-full w-10 h-10 text-xl;
+  color: var(--titleColor)
+}
+
+/* Input */
+.search-input {
+  @apply font-["Puppins"] font-semibold py-2 px-4 rounded-md cursor-text h-15;
+  background: var(--layoutBackground);
+  color: #00fff2;
+}
+
+.select-input {
+  @apply font-["Puppins"] font-semibold py-2 px-4 rounded-md cursor-pointer h-15;
+  background: var(--layoutBackground);
+  color: #00fff2;
+}
+
+.select-input:hover, .search-input:hover{
+  background: var(--inputHoverBackground);
+}
+.select-input:focus, .search-input:focus {
+  border: 2px solid var(--specialBorder);
+}
+
+.vehicle-form-input:hover{
+  background: var(--specialBorder);
+}
+
+.vehicle-form-input:focus{
+  border: 2px solid var(--titleColor);
+}
+
+.vehicle-form-input {
+  @apply font-["Puppins"] text-xl font-normal py-2 px-4 rounded-md cursor-pointer w-3/4 h-15;
+  background: var(--themeBackground);
+  color: var(--textColor);
+}
+
+/* Theme Button */
+.theme-switch {
+  @apply relative flex items-center cursor-pointer;
+}
+
+.theme-area {
+  @apply w-20 h-14 rounded-full flex items-center px-1 transition-all duration-300;
+  background-color: var(--themeBackground);
+}
+
+.sun {
+  @apply absolute right-1 w-10 h-10 flex items-center justify-center transition-all duration-300;
+}
+
+.moon {
+  @apply absolute left-1 w-8 h-8 flex items-center justify-center transition-all duration-300;
+  fill: #73C0FC;
+}
+
+.theme-switch:hover .sun {
+  animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+ 
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.theme-switch:hover .moon {
+  animation: tilt 1s linear infinite;
+}
+
+@keyframes tilt {
+ 
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(-10deg);
+  }
+
+  75% {
+    transform: rotate(10deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.theme-slider {
+  @apply absolute w-5 h-5 bg-white rounded-full shadow-md transition-all duration-300;
+}
+
+/* View Button */
+.view-button {
+  @apply inline-flex justify-center items-center cursor-pointer whitespace-nowrap overflow-hidden text-ellipsis leading-none no-underline border-none rounded-full gap-4 py-4  w-[30%] h-[4rem] relative;
+  background: var(--layoutBackground); /* Fondo inicial */
+  position: relative;
+}
+
+.view-button .view-text {
+  @apply z-10 text-2xl font-normal font-[Poppins]; 
+  color: var(--textColor);
+}
+
+.view-button .bg-span {
+  @apply absolute w-0 h-0 rounded-full transition-all duration-500 ease-out;
+  background: var(--radialGradient); /* Fondo del span */
+  z-index: 0; /* Coloca el span detrás del contenido */
+}
+
+.view-button:hover .bg-span {
+  @apply w-full h-56; /* El fondo se expande en el hover */
+}
+
+@keyframes scale {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); } /* Aumenta un 10% */
+  100% { transform: scale(1); }
+}
+
+.view-button:hover img {
+  animation: scale 0.8s infinite ease-in-out; /* Animación para la imagen */
+}
+
+/* Responsive */
+@media screen and (max-width: 480px) {
+  .filter-button {
+    @apply text-xl h-14 px-8 py-8 gap-0;
+  }
+  .filter-button img{
+    @apply w-10 h-10;
+  }
+  .view-button {
+    @apply text-lg h-14 w-full gap-0;
+  }
+  .view-button-active {
+    @apply text-lg h-14 w-full gap-0;
+  }
+  .cancel-button {
+    @apply w-full text-lg h-14 gap-0;
+  }
+  .conf-button {
+    @apply w-full text-lg h-14 gap-0;
+  }
+}
+
+.filter-button-form {
+  @apply inline-flex justify-center items-center cursor-pointer font-medium whitespace-nowrap overflow-hidden text-ellipsis leading-none no-underline border-none rounded-full gap-4 px-8 font-[Poppins] w-full h-10 text-xl;
+  background: var(--linearGradient);
+  color: var(--textColor);
+}
+.filter-button-form:hover {
+  background-size: 200% auto !important;
+  transition: background-size .3s ease-in;
+}
+
+

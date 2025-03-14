@@ -1,0 +1,411 @@
+@import "tailwindcss";
+
+:root[data-theme='light'] {
+  --closeLinear: linear-gradient(30deg, #ff9797, #440000 );
+  --layoutBackground: #0037B5;
+  --inputBackground: #85a6db;
+  --inputHoverBackground: #001F3F;
+  --themeBackground: #73C0FC; 
+    --containerColor: #9bc1ff;
+    --backgroundLinear: linear-gradient(to bottom, #9bc1ff, #105C93 50%, #9bc1ff);
+    --linearGradient: linear-gradient(30deg, #9bc1ff, #105C93);
+    --radialGradient: radial-gradient(circle, #9bc1ff, #0037B5);
+    --specialBorder: #EDD5BB;
+    --confirmTextShadow: #001F3F;
+    --closeText: #ff9797;
+    --textColor: #001F3F;
+    --titleColor: #183153;
+    --rgb: 115, 192, 252;
+    --opacity: 0.7;
+  }
+
+  :root[data-theme='dark'] {
+    --closeLinear: linear-gradient(30deg, #440000, #ff9797);
+    --inputBackground: #01172d;
+    --inputHoverBackground: #020091;
+    --layoutBackground: #010016; 
+    --themeBackground: #183153; 
+    --containerColor: #001F3F; 
+    --backgroundLinear: linear-gradient(to bottom, #105C93, #9bc1ff 50%, #105C93);
+    --linearGradient: linear-gradient(30deg, #0400ff, #4ce3f7);
+    --radialGradient: radial-gradient(circle, #010016, #0400ff);
+    --confirmTextShadow: #008079;
+    --closeText: #ff0000;
+    --specialBorder: #AE4947;
+    --textColor: #9bc1ff; 
+    --titleColor: #4DACE1;
+    --rgb: 16, 92, 147;
+    --opacity: 0.7;
+  }
+
+
+body {
+    background: var(--backgroundLinear);
+}
+
+footer {
+  @apply w-full h-auto z-10;
+  background: var(--layoutBackground);
+  position: relative; /* Cambia absolute a relative */
+}
+
+/* Animations | Actions */
+.animation-404 {
+@apply w-full h-auto;
+}
+
+.text-action {
+  @apply cursor-pointer p-2 border-4 rounded-md transition duration-300;
+}
+
+/* Backgrounds */
+.ilustration-background {
+@apply absolute w-auto h-full object-cover border-4;
+}
+
+.body-background {
+  @apply absolute top-0 left-0 w-full h-full object-cover;
+}
+
+.modal-background {
+    @apply fixed inset-0 z-40 flex items-center justify-center bg-black/50 outline-none focus:outline-none;
+}
+
+.special-text-background {
+  padding: 1rem;
+  background-color: var(--containerColor);
+  border: 5px solid var(--specialBorder);
+}
+
+.text-background {
+  padding: 1rem;
+  background-color: var(--containerColor);
+}
+
+/* Containers */
+.banner-container {
+  @apply flex items-center justify-center h-auto w-full p-4;
+}
+
+.banner-child-container {
+@apply grid grid-cols-2 gap-4 w-full max-w-6xl shadow-lg p-6 rounded-lg;
+background: var(--containerColor);
+  contain: layout paint;
+}
+
+.burger-menu {
+  @apply lg:hidden absolute top-4 right-1/4 z-40 flex flex-col w-[50vw] h-auto rounded-md;
+  background: var(--textColor);
+}
+
+.container-404 {
+  @apply flex flex-col justify-center items-center text-center w-full max-w-7xl shadow-lg p-6 rounded-lg;
+  background: var(--containerColor);
+}
+
+.carousel-container {
+  @apply relative flex justify-center items-center overflow-hidden;
+}
+
+.filters-container {
+  @apply flex items-center justify-center gap-4 w-full max-w-6xl m-4;
+  contain: layout paint;
+}
+
+.fix-container-left {
+  @apply absolute left-[10px] top-1/2 -translate-y-1/2;
+}
+
+.fix-container-right {
+  @apply absolute flex items-center right-[10px] top-1/2 -translate-y-1/2;
+}
+
+.loader-banner {
+  @apply m-auto w-1/2 h-3/4 mb-8 p-8 rounded-lg shadow-rose-600 shadow-2xl;
+  background: var(--containerColor);
+}
+
+.modal-container {
+    @apply rounded-lg relative p-6 flex flex-col h-full w-full z-50;
+    background-color: var(--containerColor);
+}
+
+.nav-links {
+  @apply hidden md:flex flex-1 flex-wrap justify-center items-center gap-4 m-auto max-w-[80vw]; /* Ajusta según sea necesario */
+}
+
+.stats-banner {
+  @apply m-auto max-w-6xl shadow-lg p-6 rounded-lg;
+  background: var(--containerColor);
+    contain: layout paint;
+}
+
+.swiper-container {
+  @apply mt-5;
+}
+
+.swiper-slide {
+  @apply flex justify-center;
+}
+
+.users-banner {
+  @apply max-w-6xl flex flex-col justify-center items-center rounded-lg;
+background: var(--containerColor);
+}
+
+.vehicle-card {
+  @apply p-5 rounded-lg shadow-emerald-400 cursor-pointer transition-transform duration-300 ease-in-out;
+  background: var(--themeBackground);
+}
+
+.vehicle-card:hover {
+  transform: scale(1.05);
+}
+
+.vehicle-cards-banner {
+  @apply flex flex-col gap-4 justify-center w-full max-w-6xl shadow-lg p-6 rounded-lg;
+  background: var(--containerColor);
+    contain: layout paint;
+  }
+
+/* Tables */
+.table {
+  @apply mt-4 m-auto w-full shadow-lg rounded-lg;
+  background: var(--containerColor);
+  contain: layout paint;
+}
+
+.table-head {
+  @apply font-["Poppins"] text-2xl font-medium text-center relative;
+  color: var(--titleColor);
+}
+.table-head-b {
+  @apply font-["Poppins"] text-2xl font-medium text-center relative;
+  border-left: 2px solid var(--textColor);
+  color: var(--titleColor);
+}
+
+.table-data {
+  @apply text-center relative font-["Quicksand"] text-xl font-normal p-4;
+  color: var(--textColor); 
+}
+
+.table-data-b {
+  @apply text-center relative font-["Quicksand"] text-xl font-normal p-4;
+  border-left: 2px solid var(--textColor);
+  color: var(--textColor); 
+}
+
+.table-data-input {
+  @apply m-auto p-4 grid grid-cols-2 justify-center items-center gap-4 text-center relative font-["Quicksand"] text-xl font-normal;
+  border-left: 2px solid var(--textColor);
+  color: var(--textColor); 
+}
+
+thead {
+  border-bottom: 2px solid var(--textColor);
+}
+
+/* .table-data::after {
+  @apply absolute w-[90%] h-1;
+  content: "";
+  bottom: -2px;
+  left: 5%;
+  background: var(--layoutBackground);
+} */
+
+/* Distribution */
+.custom-grid {
+  @apply gap-8 p-[2vw] box-border z-10 max-w-[90vw] max-h-[90vh] justify-center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10vw, 1fr));
+}
+
+.ilustration-banner-area {
+  @apply relative w-full h-full flex justify-center items-center rounded-lg overflow-hidden;
+}
+
+.text-banner-area {
+  @apply flex flex-col justify-center space-y-4;
+}
+
+/* Effects */
+.input-effect{
+    padding: 5px;
+    border-radius: 1rem;
+    width: 100%;
+  }
+  
+  .input-effect:focus-within {
+    background: var(--effectGradient);
+  }
+  
+  .input-effect:hover {
+    background: var(--effectGradient);
+  }
+
+.modal-effect {
+    padding: 5px;
+    background: var(--linearGradient);
+    width:75%;
+}
+
+/* Images || Icons */
+.icon {
+  @apply h-15 w-15 rounded-full z-10;
+}
+
+.ilustration {
+@apply relative z-10 rounded-md p-8;
+}
+
+.logo {
+  @apply h-20 w-20 rounded-full;
+}
+
+.theme-button-size {
+  border-radius: 2rem;
+  height: 4rem;
+  width: 4rem;
+  margin: auto;
+}
+
+/* Sections */
+.answers-section {
+  @apply relative w-full h-auto p-6 mx-auto flex flex-col flex-grow z-10;
+}
+
+.answers-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(var(--rgb), var(--opacity));
+  z-index: -1;
+}
+
+.answers-text {
+  @apply text-start text-lg font-["Poppins"] font-semibold;
+  color: var(--textColor);
+}
+
+.area-section {
+  @apply flex flex-col justify-center items-center m-auto w-full;
+}
+
+.nav-section {
+  @apply fixed top-0 left-0 w-full h-auto z-20 p-4 flex min-h-24;
+  background-color: var(--layoutBackground);
+}
+
+/* Texts */
+.error-text {
+  @apply sm:text-xl md:text-2xl text-red-500 font-['Poppins'] font-normal text-center;
+}
+
+.footer-title {
+  @apply sm:text-base md:text-3xl;
+  color: var(--textColor);
+  font-family: "Poppins", serif;
+  font-weight: bold;
+  text-align: center;
+}
+
+.text-404 {
+  @apply flex items-center text-center text-[15rem];
+  color: var(--titleColor);
+  font-family: 'Poppins', serif;
+}
+
+.text-active {
+  @apply sm:text-sm md:text-xl;
+  font-family: 'Quicksand', serif;
+  font-weight: bold;
+  color: var(--textColor);
+}
+
+.text-inactive {
+  @apply sm:text-sm md:text-xl;
+  font-family: 'Quicksand', serif;
+  text-align: start;
+  color: var(--titleColor);
+}
+
+.sub-title {
+    @apply text-2xl;
+    font-family: "Poppins", serif;
+    font-weight: bold;
+    color: var(--titleColor);
+}
+
+.title {
+    @apply sm:text-2xl md:text-4xl;
+    font-family: 'Poppins', serif;
+    font-weight: bold;
+    color: var(--titleColor);
+}
+
+.background-form{
+  border: 5px solid var(--specialBorder);
+  background-image: url("./assets/blue-gold BKG - copia.jpg");
+  background-position: center;
+  background-size: cover;
+  width: 400px;
+  color: #53bbf3;
+  transition: border .3s;
+  font-family: 'Quicksand', serif;
+}
+
+/* styles for custom checkbox */
+.custom-checkbox {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #d1d5db; /* Gray border */
+  border-radius: 4px; /* Rounded corners */
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.custom-checkbox::after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: #3b82f6; /* Blue background */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  border-radius: 2px; /* Rounded corners */
+  transition: transform 0.3s;
+}
+
+input[type="checkbox"]:checked + .custom-checkbox::after {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+input[type="checkbox"]:checked + .custom-checkbox {
+  border-color: #3b82f6; /* Change border color when checked */
+}
+
+.container-form{
+  width: 800px;
+  background-color: var(--containerColor);
+  transition: background-color .3s;
+}
+
+.input-bg-theme{
+  background-color: var(--inputBackground);
+  color: var(--titleColor);
+}
+
+.bg-tm-custom{
+  @apply text-2xl;
+  border: 5px solid var(--specialBorder);
+  background-image: url("./assets/red-blue BKG.jpg");
+  background-position:0cqmax;
+  color: #4DACE1;
+  font-family: "Poppins", serif;
+  font-weight: bold;
+}
+
