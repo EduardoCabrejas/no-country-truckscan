@@ -50,9 +50,9 @@ const { paginatedData, currentPage, totalPages, nextPage, prevPage, setCurrentPa
                 <th className='table-head-b'>Acción</th>
             </tr>
             </thead>
-            <tbody className="flex flex-col gap-2">
+            <tbody>
             {paginatedData.map(vehicle => (
-                <tr className="flex flex-row justify-around" key={vehicle.id}>
+                <tr key={vehicle.id}>
                 <td className='table-data'>{vehicle.marca}</td>
                 <td className='table-data-b'>{vehicle.modelo}</td>
                 <td className='table-data-b'>{vehicle.patente}</td>
@@ -60,11 +60,11 @@ const { paginatedData, currentPage, totalPages, nextPage, prevPage, setCurrentPa
                 <td className="table-data-b">
                     {vehicle.status ? (
                     <button onClick={() => onDisapproveVehicle && onDisapproveVehicle(vehicle.id)}>
-                        <img src={blockIcon} alt="Deactivate Icon" className="h-5 w-5"/>
+                        <img src={blockIcon} alt="Deactivate Icon" className="h-15 w-15"/>
                     </button>
                     ) : (
                     <button onClick={() => onReapproveVehicle && onReapproveVehicle(vehicle.id)}>
-                        <img src={checkIcon} alt="Reactivate Icon" />
+                        <img src={checkIcon} alt="Reactivate Icon" className="h-15 w-15" />
                     </button>
                     )}
                 </td>

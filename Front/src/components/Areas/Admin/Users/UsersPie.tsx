@@ -11,7 +11,7 @@ const UsersPie: React.FC = () => {
         chart: {
             type: 'pie' as const,
         },
-        labels: ['Usuarios Activos', 'Usuarios Inactivos', 'Operarios', 'Encargados'],
+        labels: ['Operarios', 'Encargados'],
         colors: ['#105C93', '#9bc1ff'],
         legend: {
             position: 'right',
